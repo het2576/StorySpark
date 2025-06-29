@@ -40,6 +40,7 @@ StoryVox is a web-based AI tool that transforms written stories — from bedtime
 ```bash
 git clone https://github.com/your-username/storyvox.git
 cd storyvox
+cd frontend
 npm install
 npm run dev
 ```
