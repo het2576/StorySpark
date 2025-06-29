@@ -1,0 +1,383 @@
+{
+    "info": {
+        "name": "StorySpark Backend",
+        "_postman_id": "b232f6c6-8122-4cd1-b3e0-f95a4fd9dd79",
+        "description": "Postman collection for all StorySpark API endpoints",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Analyze Script",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"script\": \"SARAH: Hello world!\\nLEO: Let’s go left.\",\n  \"options\": {\n    \"detectNarrator\": true,\n    \"minDialogueLength\": 10\n  }\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/analyze/script",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "analyze",
+                        "script"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Check Analysis Status",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/analyze/status/:jobId",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "analyze",
+                        "status",
+                        ":jobId"
+                    ],
+                    "variable": [
+                        {
+                            "key": "jobId",
+                            "value": "analysis_123"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Voices",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/voices",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "voices"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Voice Preview",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/voices/sarah/preview",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "voices",
+                        "sarah",
+                        "preview"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Generate Audio",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"script\": \"SARAH: Hello world!\",\n  \"characters\": [\n    { \"name\": \"SARAH\", \"voiceId\": \"sarah\" }\n  ],\n  \"settings\": {\n    \"backgroundMusic\": \"dramatic\",\n    \"outputFormat\": \"mp3\",\n    \"quality\": \"high\"\n  }\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/audio/generate",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "audio",
+                        "generate"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Check Audio Status",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/audio/status/:jobId",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "audio",
+                        "status",
+                        ":jobId"
+                    ],
+                    "variable": [
+                        {
+                            "key": "jobId",
+                            "value": "audio_gen_456"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Download Audio",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/audio/audio_gen_456/download",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "audio",
+                        "audio_gen_456",
+                        "download"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Music Styles",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/music/styles",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "music",
+                        "styles"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Apply Music",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/api/music/apply",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "music",
+                        "apply"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Upload Script File",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "file",
+                            "type": "file",
+                            "src": ""
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/files/upload",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "files",
+                        "upload"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Validate Script File",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "file",
+                            "type": "file",
+                            "src": ""
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/files/validate",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "files",
+                        "validate"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Login",
+            "request": {
+                "method": "POST",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"secret\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/auth/login",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "auth",
+                        "login"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Current User",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8000/api/auth/me",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "auth",
+                        "me"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Next Story Scene (Gemini)",
+            "request": {
+                "method": "POST",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"current_scene\": \"You are in a forest.\",\n  \"user_command\": \"Go left\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/story/next",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "story",
+                        "next"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Detect Voice Command",
+            "request": {
+                "method": "POST",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"audio_data\": \"base64_or_url_here\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/command/detect",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "command",
+                        "detect"
+                    ]
+                }
+            }
+        }
+    ]
+}
